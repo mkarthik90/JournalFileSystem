@@ -1,0 +1,16 @@
+#include<stdio.h>
+char[] CURRENT_READ_VALUE(char[] dataId){
+FILE *fp;
+char[] extension = '.txt';
+fp = fopen(dataId+extension,"r");
+if(fp == NULL){
+printf("Error in reading the data");
+}
+else{
+
+}
+
+
+
+}
+

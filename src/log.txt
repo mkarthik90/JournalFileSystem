@@ -1,0 +1,24 @@
+
+TYPE = CHANGE
+ACTION_ID = 1
+Redo Operation
+1234
+Undo Operation
+1234
+
+TYPE = CHANGE
+ACTION_ID = 2
+Redo Operation
+5678
+Undo Operation
+5678
+
+TYPE = CHANGE
+ACTION_ID = 3
+Redo Operation
+9101
+Undo Operation
+9101
+
+Outcome = Commit
+ACTION_ID = 1
