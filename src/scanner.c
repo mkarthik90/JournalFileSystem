@@ -1,7 +1,12 @@
-#include <limits.h>
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
+#include <memory.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <limits.h>
+#include "scanner.h"
 
+//Reference : http://stackoverflow.com/questions/14834267/reading-a-text-file-backwards-in-c
 /* File must be open with 'b' in the mode parameter to fopen() */
 long fsize(FILE* binaryStream)
 {
@@ -82,30 +87,4 @@ char* fgetsr(char* buf, int n, FILE* binaryStream)
   memmove(buf, buf + cpos, n - cpos);
 
   return buf;
-}
-
-int main()
-{
-  FILE* f;
-  long sz;
-
- 
-  if ((f = fopen("log.txt", "rb")) == NULL)
-  {
-    
-  }
-
-  sz = fsize(f);
-//  printf("file size: %ld\n", sz);
-
-  if (sz > 0)
-  {
-    char buf[256];
-    fseek(f, sz, SEEK_SET);
-    while (fgetsr(buf, sizeof(buf), f) != NULL)
-      printf("%s", buf);
-  }
-
-  fclose(f);
-  return 0;
 }

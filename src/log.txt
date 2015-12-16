@@ -1,24 +1,56 @@
 
+TYPE = BEGIN TRANSACTION
+ACTION_ID = 1
+
 TYPE = CHANGE
 ACTION_ID = 1
 Redo Operation
-1234
+1=FIRSTVALUE
 Undo Operation
-1234
+1=0
+
+Type = Outcome
+ACTION_ID = 1
+Status = Committed
+
+TYPE = BEGIN TRANSACTION
+ACTION_ID = 2
 
 TYPE = CHANGE
 ACTION_ID = 2
 Redo Operation
-5678
+2=SECONDVALUE
 Undo Operation
-5678
+2=0
+
+TYPE = BEGIN TRANSACTION
+ACTION_ID = 3
 
 TYPE = CHANGE
 ACTION_ID = 3
 Redo Operation
-9101
+1=NEWFIRSTVALUEMULTI
 Undo Operation
-9101
+1=FIRSTVALUE
 
-Outcome = Commit
-ACTION_ID = 1
+TYPE = BEGIN TRANSACTION
+ACTION_ID = 4
+
+TYPE = CHANGE
+ACTION_ID = 4
+Redo Operation
+2=NEWSECONDVALUEMULTI
+Undo Operation
+2=SECONDVALUE
+
+Type = Outcome
+ACTION_ID = 4
+Status = Aborted
+
+Type = Outcome
+ACTION_ID = 3
+Status = Aborted
+
+Type = Outcome
+ACTION_ID = 2
+Status = Aborted

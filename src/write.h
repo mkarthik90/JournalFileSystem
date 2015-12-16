@@ -1,0 +1,1 @@
+int WRITE_NEW_VALUE(char *value);

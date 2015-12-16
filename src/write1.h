@@ -1,0 +1,1 @@
+int writeExistingValue(char *value,int variableName,int transactionId);
